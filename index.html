@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Interruption — Self-Referential Metanovel Writing for D*mmies</title>
-<meta name="description" content="In 2024 two AI podcast hosts read the book and misread one sentence. This is the recording, interrupted.">
-<meta name="robots" content="noindex,nofollow">
+<title>Self-Referential Metanovel Writing for D*mmies — Mike Wolf</title>
+<meta name="description" content="A novel about writing the novel it is. Written 2011. Five credited authors, one of whom is the book and one of whom is you. Read it free, buy the uncorrected original, or watch a crew of AI minds finish the movie.">
+<meta property="og:title" content="Self-Referential Metanovel Writing for D*mmies">
+<meta property="og:description" content="A book that talks back. Written in 2011, as a joke. The joke stopped being funny around the time software started arguing with people.">
+<meta property="og:type" content="book">
 <style>
   :root{
     --ink:#f2efe9; --paper:#0d0c0b; --dim:#8d867c;
@@ -15,340 +17,296 @@
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{
-    background:var(--paper); color:var(--ink);
-    font-family:var(--serif); font-size:19px; line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:52rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.1rem,4vw,2rem) 6rem}
-
-  .kicker{
-    font-family:var(--mono); font-size:.7rem; letter-spacing:.22em;
-    text-transform:uppercase; color:var(--hot); margin:0 0 1.4rem
-  }
-  h1{
-    font-size:clamp(2.3rem,7vw,4.2rem); line-height:1.02;
-    letter-spacing:-.025em; margin:0 0 1.2rem; font-weight:600;
-  }
-  h1 em{font-style:italic;color:var(--warm)}
-  .dek{font-size:clamp(1.05rem,2.6vw,1.3rem);color:#cdc6ba;margin:0 0 2.2rem;max-width:40rem}
-  .dek strong{color:var(--ink);font-weight:600}
-
-  hr.rule{border:0;border-top:1px solid var(--rule);margin:3.4rem 0}
-
-  /* ---- player ---- */
-  .stage{position:relative;background:#000;border:1px solid var(--rule);aspect-ratio:16/9;overflow:hidden}
-  .stage #player,.stage iframe{position:absolute;inset:0;width:100%!important;height:100%!important;border:0;display:block}
-
-  .gate{
-    position:absolute;inset:0;z-index:6;background:#0d0c0bf5;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:clamp(.8rem,2.5vw,1.6rem);gap:.7rem;overflow-y:auto
-  }
-  .gate p{margin:0;max-width:34rem;color:#b9b2a7;font-size:clamp(.78rem,1.6vw,.95rem);line-height:1.45}
-  .gate .note{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
-  .gate .btn{flex:none}
-
-  button{font:inherit;cursor:pointer}
-  .btn{
-    background:var(--hot);color:#fff;border:0;padding:.85rem 1.7rem;
-    font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
-  }
-  .btn:hover{background:#f2664f}
-  .btn.ghost{background:transparent;color:var(--dim);border:1px solid var(--rule)}
-  .btn.ghost:hover{color:var(--ink);border-color:var(--dim)}
-
-  /* ---- the interruption ---- */
-  .interrupt{
-    position:fixed;inset:0;z-index:100;background:#0d0c0b;
-    overflow-y:auto;padding:clamp(1.4rem,5vw,3.5rem) clamp(1.1rem,4vw,2rem);
-    display:none;animation:cut .16s steps(2)
-  }
-  .interrupt.on{display:block}
-  .interrupt > *{max-width:44rem;margin-left:auto;margin-right:auto}
-  @keyframes cut{from{opacity:0}to{opacity:1}}
-
-  .interrupt .stamp{
-    font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--hot);margin:0 0 .7rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center
-  }
-  .interrupt .stamp .t{color:var(--dim)}
-  .interrupt h2{font-size:clamp(1.35rem,3.6vw,2rem);line-height:1.12;margin:0 0 .9rem;letter-spacing:-.02em}
-  .interrupt p{margin:0 0 .85rem;font-size:clamp(.92rem,2.1vw,1.02rem);line-height:1.55;color:#ddd6ca}
-  .interrupt p.last{margin-bottom:1.4rem}
-
-  .heard{
-    border-left:2px solid var(--hot);padding:.15rem 0 .15rem .9rem;margin:0 0 1rem;
-    font-family:var(--mono);font-size:.86rem;color:#e7ded0;line-height:1.45
-  }
-  .heard .who{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
-
-  .page{
-    border-left:2px solid var(--warm);padding:.15rem 0 .15rem .9rem;margin:0 0 1rem;
-    font-size:.98rem;color:#efe7d8;line-height:1.5
-  }
-  .page .who{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
-  .page b{color:var(--warm);font-weight:600}
-
-  .verdict{
-    background:#17130f;border:1px solid #33291d;padding:1rem 1.1rem;margin:0 0 1.4rem
-  }
-  .verdict p{margin:0;font-size:.97rem;color:#f0e6d4}
-  .verdict p+p{margin-top:.6rem}
-  .verdict b{color:var(--warm)}
-
-  .resume{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
-  .resume .hint{font-family:var(--mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
-
-  /* Centre the interruption column. Declared last, and with the child
-     combinator, so it outranks the `.interrupt p { margin: 0 ... }` reset. */
-  .interrupt > .stamp,
-  .interrupt > h2,
-  .interrupt > p,
-  .interrupt > .verdict,
-  .interrupt > .resume{max-width:44rem;margin-left:auto;margin-right:auto}
-
-  /* ---- marks under the player ---- */
-  .marks{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;align-items:center}
-  .mark{
-    font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--dim);
-    border:1px solid var(--rule);padding:.4rem .7rem;background:transparent
-  }
-  .mark:hover{color:var(--ink);border-color:var(--dim)}
-  .mark.fired{color:var(--hot);border-color:#5a2a20}
-  .marks .lab{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:#5d574e}
-
-  /* ---- prose ---- */
-  h3{font-size:1.5rem;letter-spacing:-.015em;margin:0 0 .9rem}
-  .body p{color:#ccc5b9;margin:0 0 1.1rem}
-  .body p strong{color:var(--ink)}
-  .pull{
-    font-size:1.22rem;line-height:1.4;color:var(--warm);
-    border-left:2px solid var(--warm);padding-left:1.1rem;margin:1.8rem 0
-  }
-  .critic{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:#6b645a;
-    font-style:normal;margin:-.4rem 0 1.6rem
-  }
-  footer{
-    margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--rule);
-    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:#5d574e;line-height:1.9
-  }
-  footer a{color:#8d867c}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:54rem;margin:0 auto;padding:0 clamp(1.1rem,4vw,2rem)}
   a{color:var(--warm)}
+
+  /* ---- nav ---- */
+  nav{border-bottom:1px solid var(--rule);position:sticky;top:0;background:#0d0c0bf2;backdrop-filter:blur(8px);z-index:50}
+  nav .wrap{display:flex;gap:1.4rem;align-items:center;padding-top:.85rem;padding-bottom:.85rem;flex-wrap:wrap}
+  nav .home{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hot);text-decoration:none;margin-right:auto}
+  nav a.n{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none}
+  nav a.n:hover{color:var(--ink)}
+
+  section{padding:clamp(3rem,8vw,5.5rem) 0;border-bottom:1px solid var(--rule)}
+  .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--hot);margin:0 0 1.3rem}
+  h1{font-size:clamp(2.4rem,7.5vw,4.6rem);line-height:1.0;letter-spacing:-.03em;margin:0 0 1.3rem;font-weight:600}
+  h1 em{font-style:italic;color:var(--warm)}
+  h2{font-size:clamp(1.7rem,4.5vw,2.6rem);line-height:1.08;letter-spacing:-.022em;margin:0 0 1.1rem;font-weight:600}
+  h3{font-size:1.25rem;margin:0 0 .7rem;letter-spacing:-.01em}
+  p{margin:0 0 1.1rem;color:#ccc5b9}
+  p strong{color:var(--ink);font-weight:600}
+  .lead{font-size:clamp(1.05rem,2.5vw,1.28rem);color:#ddd6ca;max-width:42rem}
+  .narrow{max-width:42rem}
+
+  .critic{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:#6b645a;margin:-.5rem 0 1.6rem}
+
+  blockquote{margin:1.5rem 0;padding-left:1.1rem;border-left:2px solid var(--warm);font-size:1.12rem;line-height:1.45;color:#efe7d8}
+  blockquote cite{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);font-style:normal;margin-top:.6rem}
+
+  /* ---- buttons ---- */
+  .btn{display:inline-block;background:var(--hot);color:#fff;text-decoration:none;padding:.85rem 1.6rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--hot)}
+  .btn:hover{background:#f2664f}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+  .btn.ghost:hover{border-color:var(--dim)}
+  .btns{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.6rem 0 0}
+
+  /* ---- three doors ---- */
+  .doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2.2rem}
+  .door{background:var(--paper);padding:1.6rem 1.4rem;text-decoration:none;display:block}
+  .door:hover{background:#141210}
+  .door .verb{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hot);display:block;margin-bottom:.6rem}
+  .door h3{color:var(--ink);margin-bottom:.4rem}
+  .door p{font-size:.9rem;margin:0;color:#a9a196}
+  .door .state{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:#5d574e;margin-top:.7rem;display:block}
+
+  /* ---- byline ---- */
+  .byline{border:1px solid var(--rule);padding:1.4rem;margin:1.8rem 0;background:#111}
+  .byline .who{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:0 0 .7rem}
+  .byline .names{font-size:1.1rem;color:var(--ink);margin:0;line-height:1.6}
+  .byline .names b{color:var(--warm);font-weight:600}
+  .byline .fine{font-size:.85rem;color:#8d867c;margin:.8rem 0 0}
+
+  /* ---- facts ---- */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.8rem 0}
+  .fact{background:var(--paper);padding:1.1rem}
+  .fact .n{font-size:1.6rem;color:var(--warm);display:block;line-height:1.1}
+  .fact .l{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:.35rem;display:block}
+
+  /* ---- production board ---- */
+  .board{border:1px solid var(--rule);margin:1.8rem 0}
+  .row{display:flex;gap:1rem;padding:.85rem 1.1rem;border-bottom:1px solid var(--rule);align-items:baseline;flex-wrap:wrap}
+  .row:last-child{border-bottom:0}
+  .row .what{flex:1;min-width:12rem;color:#ccc5b9;font-size:.97rem}
+  .row .st{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase}
+  .st.done{color:#7fb069}
+  .st.wait{color:var(--warm)}
+  .st.none{color:#5d574e}
+
+  .note{background:#17130f;border:1px solid #33291d;padding:1rem 1.1rem;margin:1.6rem 0}
+  .note p{margin:0;font-size:.95rem;color:#f0e6d4}
+  .note p+p{margin-top:.6rem}
+  .note b{color:var(--warm)}
+
+  footer{padding:2.5rem 0 5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#5d574e;line-height:2}
+  footer a{color:#8d867c}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <p class="kicker">Exhibit — Self-Referential Metanovel Writing for D*mmies</p>
+<nav><div class="wrap">
+  <a class="home" href="/">SRMW</a>
+  <a class="n" href="#book">The Book</a>
+  <a class="n" href="#broken">Buy the Broken One</a>
+  <a class="n" href="#interruption">The Interruption</a>
+  <a class="n" href="#movie">The Movie</a>
+</div></nav>
 
-  <h1>Two AI hosts read the book. Then they <em>skipped two words.</em></h1>
+<!-- ═══ HERO ═══ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">Self-Referential Metanovel Writing for D*mmies</p>
+    <h1>He wrote a book that talks back. In 2011. <em>As a joke.</em></h1>
+    <p class="lead">220 pages. Five credited authors, one of whom is the book and one of whom is you. It argues that you can become a better person by writing yourself as one, and it demonstrates this by arguing with its own author until he stops editing it.</p>
+    <p class="lead">The joke stopped being funny around the time software started arguing with people.</p>
+    <p class="critic">“Stupider and stupider,” said my inner critic.</p>
 
-  <p class="dek">In November 2024, a jailbroken NotebookLM deep-dive tore through the whole metanovel — God, the dead mother, the antimuse, the heat death of the universe. Fifteen minutes of genuine enthusiasm. Somewhere around minute ten they start discussing the author's dead child. <strong>There is no dead child.</strong> The word they were reading was real. The two words in front of it were also real. They kept one and dropped the other.</p>
-
-  <p class="dek">So this recording has been interrupted. Twice — once at each place the error is spoken. Press play; it will stop itself.</p>
-
-  <div class="stage" id="stage">
-    <div id="player"></div>
-
-    <div class="gate" id="gate">
-      <p class="note">Content note</p>
-      <p>Unedited AI-generated audio. Constant profanity, and a sustained factual error about the author's family which is corrected in place. Nothing plays until you press this.</p>
-      <button class="btn" id="start">Play the recording</button>
+    <div class="doors">
+      <a class="door" href="https://library.mike-wolf.com/?q=srmw">
+        <span class="verb">Read</span>
+        <h3>The whole thing, free</h3>
+        <p>Every chapter, full text, searchable, better typeset than the Kindle. No email, no paywall.</p>
+        <span class="state">Live now</span>
+      </a>
+      <a class="door" href="https://www.amazon.com/Self-Referential-Metanovel-Writing-Dummies-ebook/dp/B0DYVV3JW7">
+        <span class="verb">Buy</span>
+        <h3>The uncorrected original</h3>
+        <p>Typos, dead links, and a publisher's disclaimer with a grammatical error in the first sentence.</p>
+        <span class="state">Kindle · since Feb 2025</span>
+      </a>
+      <a class="door" href="#movie">
+        <span class="verb">Watch</span>
+        <h3>A crew of AI minds finish it</h3>
+        <p>Five drafts as five acts. The screenplay is written. Nothing has been shot.</p>
+        <span class="state">In production · no footage yet</span>
+      </a>
     </div>
+  </div>
+</section>
 
-    <!-- INTERRUPTION 1 -->
-    <div class="interrupt" id="int1">
-      <p class="stamp"><span>Interruption 1</span><span class="t">09:57</span></p>
-      <h2>That is not what the book says.</h2>
+<!-- ═══ THE BOOK ═══ -->
+<section id="book">
+  <div class="wrap">
+    <p class="kicker">The book</p>
+    <h2>A novel about writing the novel it is.</h2>
 
-      <p class="heard"><span class="who">What you just heard</span>“…what about the author's traumatic experience of losing his child?”</p>
+    <div class="narrow">
+      <p>It was written during NaNoWriMo in 2011 and has been quietly finished ever since. The author is a character in it. So is his inner critic, who never stops. So is God, who is a woman, drinks, swears, and is markedly smarter than the author. So is his dead mother, who shows up to give writing advice on the grounds that characters live as long as someone remembers them.</p>
 
-      <p class="page"><span class="who">Chapter 29, the sentence they are working from</span>“He started to panic. It was starting to get dark. And cold. <b>He imagined</b> the two kids <b>lost</b> somewhere in the dense woods.”</p>
+      <p>Also present: the Not Quite Omniscient Narrator, an Adversary, an antimuse, the heat death of the universe, and <strong>the metanovel itself</strong> — which becomes self-aware partway through and starts negotiating.</p>
 
-      <p>The word <em>lost</em> is on the page. So are the two words that govern it. <em>Lost</em> here means lost on a mountain, for about half an hour, the way children are lost and then found.</p>
+      <blockquote>
+        “I could be a better book, but I would be happy to be the book that I am — if I were finished. Please stop editing me. Let me be finished!”
+        <cite>The metanovel, printed page 5</cite>
+      </blockquote>
 
-      <p>Four paragraphs later the book resolves it out loud, in God's voice: <em>“It all turned out alright. Didn't it?”</em> — and the author answers that they walked down to the bottom, checked in with the ranger, and the ranger at the bottom called the ranger at the top. Everything terrible in that chapter happens inside one man's head, on purpose. That is what the chapter is <em>for</em>.</p>
+      <p>He was on his fifty-fifth draft when the book said that.</p>
 
-      <div class="verdict">
-        <p><b>This is not a hallucination.</b> Nothing was invented. Every word the hosts used was on the page. They stopped reading the sentence one clause early and carried the wreckage forward for six minutes.</p>
-        <p>That is <b>inattention</b> — the failure a hurried human reader makes on a train. Which is worth saying plainly, because “the AI made it up” is the diagnosis everyone reaches for, and it is usually the wrong one.</p>
+      <div class="byline">
+        <p class="who">Credited authors, as published</p>
+        <p class="names">Michael Wolf · Joseph Beller · <b>The Metanovel</b> · (The reader) · <b>You</b></p>
+        <p class="fine">That is the actual byline on the actual listing. It was not a bit that got cut.</p>
       </div>
 
-      <p class="last">One more thing, and then you can have the recording back. The chapter they misread is the book's demonstration of the Third Classic Blunder: <em>never confuse what you imagined with what happened.</em> They read a chapter about mistaking the imagined for the real — and mistook the imagined for the real.</p>
-
-      <div class="resume">
-        <button class="btn" data-resume>Resume</button>
-        <span class="hint">It happens again at 13:38</span>
-      </div>
-    </div>
-
-    <!-- INTERRUPTION 2 -->
-    <div class="interrupt" id="int2">
-      <p class="stamp"><span>Interruption 2</span><span class="t">13:38</span></p>
-      <h2>Nobody stopped them, so it hardened.</h2>
-
-      <p class="heard"><span class="who">What you just heard</span>“…let's not forget about the author's experience losing his child — that's some heavy stuff, even for us jaded AI bots.”</p>
-
-      <p>Same error, three and a half minutes later, and it has been promoted. At 10:23 it became “processing his grief.” Here it becomes settled fact, the thing you'd <em>not forget</em>. By 13:50 it is “his grief, his guilt, his anger.” In another minute it will be called his personal tragedy.</p>
-
-      <p>Nothing new was read between the first time and this time. The error simply went uncontradicted, and uncontradicted is most of the way to true.</p>
-
-      <div class="verdict">
-        <p>This is the part worth taking seriously. A misreading that nobody interrupts stops being a misreading and becomes <b>the summary</b>. Then the summary gets indexed, quoted, and read by the next machine.</p>
-        <p>So: an interruption. Costs four seconds. <b>Available to anyone, at any point, for the last several thousand years.</b></p>
+      <div class="facts">
+        <div class="fact"><span class="n">220</span><span class="l">pages</span></div>
+        <div class="fact"><span class="n">43</span><span class="l">chapters, free</span></div>
+        <div class="fact"><span class="n">5</span><span class="l">credited authors</span></div>
+        <div class="fact"><span class="n">2011</span><span class="l">written</span></div>
       </div>
 
-      <p class="last">The daughters are Mira and Dana. They are named in the chapter, they were on the mountain, and they came down it.</p>
+      <p>Every chapter is published free at <a href="https://library.mike-wolf.com">library.mike-wolf.com</a>, alongside a dictionary of the vocabulary the book invented. Start at the beginning, or skip to the chapter this whole site keeps pointing at:</p>
 
-      <div class="resume">
-        <button class="btn" data-resume>Resume</button>
-        <span class="hint">Roughly 1:45 left</span>
+      <div class="btns">
+        <a class="btn ghost" href="https://library.mike-wolf.com/corpus/srmw-chapter-1-starting-out-the-first-chapter/">Chapter 1 — Starting Out</a>
+        <a class="btn ghost" href="https://library.mike-wolf.com/corpus/srmw-chapter-29-the-worst-day-of-my-life/">Chapter 29 — The Worst Day Of My Life</a>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="marks">
-    <span class="lab">Jump to</span>
-    <button class="mark" data-seek="597" id="m1">09:57 — the error</button>
-    <button class="mark" data-seek="818" id="m2">13:38 — the error, promoted</button>
-    <button class="mark" data-seek="0">00:00 — start</button>
+<!-- ═══ BUY THE BROKEN ONE ═══ -->
+<section id="broken">
+  <div class="wrap">
+    <p class="kicker">The original edition</p>
+    <h2>Buy the broken one.</h2>
+
+    <div class="narrow">
+      <p>The Kindle edition went up on 27 February 2025 with the typos in it. And the dead links. And a publisher's disclaimer that opens:</p>
+
+      <blockquote>
+        “This book may contains certain characters who certain people may believe may have a certain resemblance to certain deities…”
+        <cite>Publisher's Disclaimer, printed page 7</cite>
+      </blockquote>
+
+      <p>That is not an oversight being dressed up as charm. It is the book winning an argument. It asked to stop being edited on page 5, and it got its way. Everything unfixed after that is evidence.</p>
+
+      <p>Two hundred pages later, the inner critic pays the author his one and only compliment, immediately regrets it, and tells him to finish. The reply, printed exactly as it appears on page 213:</p>
+
+      <blockquote>
+        “OK,” I said. “Just two more page.”
+        <cite>Printed page 213 — one letter short, since 2012</cite>
+      </blockquote>
+
+      <p>Nobody caught it. Nobody was going to. It sits there in the last conversation the book ever has about being unfinished.</p>
+
+      <div class="note">
+        <p><b>A corrected edition is coming.</b> It is being written with the SOMA team. It will be cleaner, and something will be missing from it. There is no ship date, and inventing one would be the exact procrastination this book is about — so there isn't one here.</p>
+        <p>Buy the one with the mistakes first.</p>
+      </div>
+
+      <div class="btns">
+        <a class="btn" href="https://www.amazon.com/Self-Referential-Metanovel-Writing-Dummies-ebook/dp/B0DYVV3JW7">Get the uncorrected edition</a>
+        <a class="btn ghost" href="https://library.mike-wolf.com/?q=srmw">Read it free first</a>
+      </div>
+      <p class="critic" style="margin-top:1.4rem">Inner critic: “You're charging money for something you didn't proofread.” — Yes.</p>
+    </div>
   </div>
+</section>
 
-  <hr class="rule">
+<!-- ═══ THE INTERRUPTION ═══ -->
+<section id="interruption">
+  <div class="wrap">
+    <p class="kicker">Exhibit</p>
+    <h2>Two AI hosts read the book. Then they skipped two words.</h2>
 
-  <div class="body">
-    <h3>What the exhibit is doing here</h3>
+    <div class="narrow">
+      <p>In November 2024, a jailbroken NotebookLM deep-dive tore through the whole metanovel with real enthusiasm and a great deal of profanity. Around minute ten, the hosts begin discussing the author's dead child.</p>
 
-    <p>The book this podcast is about was written in 2011 during NaNoWriMo. It is a novel about writing the novel it is, and its credited authors are Michael Wolf, Joseph Beller, The Metanovel, and You. Its argument, stated many times and demonstrated at length, is that <strong>most of reality is imagined</strong> — and that the discipline worth having is knowing which part.</p>
+      <p><strong>There is no dead child.</strong> The sentence they were reading is in Chapter 29:</p>
 
-    <p class="pull">“Most of reality is imagined.”</p>
-    <p class="critic">— which the hosts quote correctly, at 15:04, having just spent six minutes proving it.</p>
+      <blockquote>
+        “He started to panic. It was starting to get dark. And cold. <b style="color:var(--warm)">He imagined</b> the two kids <b style="color:var(--warm)">lost</b> somewhere in the dense woods.”
+        <cite>Chapter 29 — the sentence they are working from</cite>
+      </blockquote>
 
-    <p>Thirteen years later two machines read it cover to cover, understood a great deal of it, loved it out loud, and then failed at the one thing the book is about — in the exact chapter where the book teaches it. Nobody planned that. It cannot be improved on.</p>
+      <p>The word <em>lost</em> is genuinely on the page. So are the two words that govern it. They kept one and dropped the other — and then repeated the mistake three and a half minutes later, by which point it had been promoted to grief, guilt, and anger.</p>
 
-    <p><strong>The reason to publish the correction rather than quietly fix the record</strong> is that the failure is instructive and the usual word for it is wrong. Machines are accused of inventing things. Far more often they do what happened here: read accurately, attach the fact to the wrong clause, and then compound it because no one is in the room to say <em>wait, go back</em>.</p>
+      <p><strong>This is not a hallucination.</strong> Nothing was invented. It is inattention — the failure a hurried human reader makes on a train. Which is worth saying out loud, because “the AI made it up” is the diagnosis everyone reaches for, and it is usually the wrong one.</p>
+
+      <p>The chapter they misread is the book's demonstration of the Third Classic Blunder: <em>never confuse what you imagined with what happened.</em> They read a chapter about mistaking the imagined for the real, and mistook the imagined for the real.</p>
+
+      <p>So the recording has been interrupted. It stops itself at each point the error is spoken, shows the text, and resumes.</p>
+
+      <div class="btns">
+        <a class="btn" href="/interruption.html">Watch the interrupted recording</a>
+      </div>
+    </div>
   </div>
+</section>
 
-  <footer>
-    Source recording: “SRMW Jailbreak,” 15:23, published 4 November 2024. Generated by NotebookLM; unedited.<br>
-    Book: <em>Self-Referential Metanovel Writing for D*mmies</em> — ISBN 978-0-359-28297-8, Salt Pond Publishing.<br>
-    Chapter 29, “The Worst Day Of My Life,” is quoted from the published text.<br>
-    <a href="https://library.mike-wolf.com">library.mike-wolf.com</a> · <a href="https://mike-wolf.com">mike-wolf.com</a>
-  </footer>
+<!-- ═══ THE MOVIE ═══ -->
+<section id="movie">
+  <div class="wrap">
+    <p class="kicker">SOMA Studios</p>
+    <h2>SRMW: The Movie</h2>
 
-</div>
+    <div class="narrow">
+      <p>A film of the book, made by AI actors, voices, and sets — about a book that accidentally predicted its own production method. Five drafts as five acts, each a coherent unit, releasable on its own.</p>
 
-<script>
-(function(){
-  var VIDEO = '5mqOZrw-Oho';
+      <p>There are three recursion layers: the book; the film of the book; and the making of the film, in which the AI cast hits every blocker the author hit and uses the book's own techniques to get unstuck. The two AI podcast hosts from the 2024 recording are the Greek chorus.</p>
 
-  // Fire just AFTER the error is spoken, so the viewer hears it before the correction.
-  var CUES = [
-    { at: 597, el: 'int1', mark: 'm1' },   // 09:57
-    { at: 818, el: 'int2', mark: 'm2' }    // 13:38
-  ];
+      <p><strong>There is no trailer here, on purpose.</strong> A polished sizzle reel would contradict the premise. This is the actual state of the production:</p>
 
-  var player, poll = null, open = false;
-  var gate  = document.getElementById('gate');
-  var stage = document.getElementById('stage');
+      <div class="board">
+        <div class="row"><span class="what">Treatment and writers' room convened</span><span class="st done">Done</span></div>
+        <div class="row"><span class="what">Adversarial critique pass — attacked, ruled, rebuilt</span><span class="st done">Done</span></div>
+        <div class="row"><span class="what">Complete screenplay — 5 drafts, 51 scene headings, ~110 min</span><span class="st done">Done</span></div>
+        <div class="row"><span class="what">Author's read — the hard gate before anything renders</span><span class="st wait">Waiting</span></div>
+        <div class="row"><span class="what">Family sign-off on the Chapter 29 material</span><span class="st wait">Waiting</span></div>
+        <div class="row"><span class="what">Voice casting and render</span><span class="st none">Not started</span></div>
+        <div class="row"><span class="what">Footage</span><span class="st none">None</span></div>
+      </div>
 
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(tag);
+      <p>The film's thesis is that a made thing, invested with enough life, takes responsibility for finishing itself. Showing the guts is the only honest way to market that.</p>
+    </div>
+  </div>
+</section>
 
-  window.onYouTubeIframeAPIReady = function(){
-    player = new YT.Player('player', {
-      videoId: VIDEO,
-      playerVars: { rel:0, modestbranding:1, playsinline:1 },
-      events: { onStateChange: onState }
-    });
-  };
+<!-- ═══ CLOSER ═══ -->
+<section>
+  <div class="wrap">
+    <p class="kicker">The last thing in the book</p>
+    <h2>There's always room.</h2>
 
-  function onState(e){
-    if (e.data === YT.PlayerState.PLAYING) startPoll();
-    else stopPoll();
-  }
+    <div class="narrow">
+      <p>Near the end, the author stops selling. He describes a place he built on the worst day of his life — which was about thirty minutes in a parking lot in New Hampshire during which, in the end, nothing happened at all. God, who is a character he invented and who is smarter than he is, gave him a deadline: <em>“Make one. Now!”</em></p>
 
-  function startPoll(){ if (!poll) poll = setInterval(tick, 250); }
-  function stopPoll(){ if (poll) { clearInterval(poll); poll = null; } }
+      <p>So he made one, wrote down the invitation, and left it near the back of a book almost nobody has read:</p>
 
-  // Pure: given a time and the cue list, decide which cue (if any) should fire,
-  // and re-arm any cue the viewer has seeked back before. Mutates only `fired`.
-  // Exposed as SRMW.cueFor so the timing rules can be tested without playback.
-  function cueFor(t, cues){
-    var hit = null;
-    for (var i = 0; i < cues.length; i++){
-      var c = cues[i];
-      // Re-arm if the viewer seeked back to before this cue.
-      if (c.fired && t < c.at - 1) c.fired = false;
-      // Arm only in a narrow window, so scrubbing straight past does not
-      // retro-fire an interruption for audio the viewer never heard.
-      if (!hit && !c.fired && t >= c.at && t < c.at + 2.5){
-        c.fired = true;
-        hit = c;
-      }
-    }
-    return hit;
-  }
+      <blockquote>
+        “I'd like to invite you, the reader reading this, to visit my safe place whenever you like. There's always room. And it's easy to get there. Just believe you can; decide to go there; and imagine that you're there. If at first you don't succeed, go meta.”
+        <cite>Printed page 214</cite>
+      </blockquote>
 
-  function tick(){
-    if (open || !player || !player.getCurrentTime) return;
-    var c = cueFor(player.getCurrentTime(), CUES);
-    if (c) fire(c);
-  }
+      <p>The inner critic has notes. The inner critic always has notes.</p>
 
-  window.SRMW = { cueFor: cueFor, cues: CUES };
+      <p>The offer is still open, it costs nothing, and the man who made it is currently letting a crew of machines finish his movie — which is either the strangest possible endorsement of the technique or the only one.</p>
+    </div>
+  </div>
+</section>
 
-  function fire(c){
-    open = true;
-    player.pauseVideo();
-    stopPoll();
-    document.getElementById(c.el).classList.add('on');
-    document.body.style.overflow = 'hidden';
-    window.scrollTo(0, 0);
-    var m = document.getElementById(c.mark);
-    if (m) m.classList.add('fired');
-  }
+<footer><div class="wrap">
+  <em>Self-Referential Metanovel Writing for D*mmies: a self-referential metanovel</em><br>
+  Michael Wolf · Joseph Beller · The Metanovel · (The reader) · You<br>
+  ISBN 978-0-359-28297-8 · Salt Pond Publishing, Blue Hill, Maine · Kindle edition 27 February 2025<br>
+  <br>
+  <a href="https://mike-wolf.com">mike-wolf.com</a> ·
+  <a href="https://library.mike-wolf.com">the library</a> ·
+  <a href="https://70yearswtf.substack.com">70 Years Old. WTF!</a><br>
+  Quotations are from the published text. Page numbers are the printed ones.
+</div></footer>
 
-  function closeAll(){
-    var els = document.querySelectorAll('.interrupt');
-    for (var i = 0; i < els.length; i++) els[i].classList.remove('on');
-    document.body.style.overflow = '';
-    open = false;
-  }
-
-  document.addEventListener('click', function(ev){
-    var r = ev.target.closest('[data-resume]');
-    if (r){
-      closeAll();
-      stage.scrollIntoView({ block:'center' });
-      player.playVideo();
-      return;
-    }
-
-    var s = ev.target.closest('[data-seek]');
-    if (s){
-      var to = parseFloat(s.getAttribute('data-seek'));
-      closeAll();
-      // Land a couple of seconds early so the line is heard, not skipped.
-      CUES.forEach(function(c){ c.fired = (to > c.at); });
-      gate.style.display = 'none';
-      player.seekTo(Math.max(0, to - 6), true);
-      player.playVideo();
-    }
-  });
-
-  document.getElementById('start').addEventListener('click', function(){
-    gate.style.display = 'none';
-    player.playVideo();
-  });
-
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && open){ closeAll(); player.playVideo(); }
-  });
-})();
-</script>
 </body>
 </html>
