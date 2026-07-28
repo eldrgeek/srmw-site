@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Interruption — Self-Referential Metanovel Writing for D*mmies</title>
+<meta name="description" content="In 2024 two AI podcast hosts read the book and misread one sentence. This is the recording, interrupted.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+  :root{
+    --ink:#f2efe9; --paper:#0d0c0b; --dim:#8d867c;
+    --rule:#2a2724; --hot:#e8563f; --warm:#f0c66b;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--serif); font-size:19px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:52rem;margin:0 auto;padding:clamp(2rem,6vw,5rem) clamp(1.1rem,4vw,2rem) 6rem}
+
+  .kicker{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--hot); margin:0 0 1.4rem
+  }
+  h1{
+    font-size:clamp(2.3rem,7vw,4.2rem); line-height:1.02;
+    letter-spacing:-.025em; margin:0 0 1.2rem; font-weight:600;
+  }
+  h1 em{font-style:italic;color:var(--warm)}
+  .dek{font-size:clamp(1.05rem,2.6vw,1.3rem);color:#cdc6ba;margin:0 0 2.2rem;max-width:40rem}
+  .dek strong{color:var(--ink);font-weight:600}
+
+  hr.rule{border:0;border-top:1px solid var(--rule);margin:3.4rem 0}
+
+  /* ---- player ---- */
+  .stage{position:relative;background:#000;border:1px solid var(--rule);aspect-ratio:16/9;overflow:hidden}
+  .stage #player,.stage iframe{position:absolute;inset:0;width:100%!important;height:100%!important;border:0;display:block}
+
+  .gate{
+    position:absolute;inset:0;z-index:6;background:#0d0c0bf5;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:clamp(.8rem,2.5vw,1.6rem);gap:.7rem;overflow-y:auto
+  }
+  .gate p{margin:0;max-width:34rem;color:#b9b2a7;font-size:clamp(.78rem,1.6vw,.95rem);line-height:1.45}
+  .gate .note{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+  .gate .btn{flex:none}
+
+  button{font:inherit;cursor:pointer}
+  .btn{
+    background:var(--hot);color:#fff;border:0;padding:.85rem 1.7rem;
+    font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .btn:hover{background:#f2664f}
+  .btn.ghost{background:transparent;color:var(--dim);border:1px solid var(--rule)}
+  .btn.ghost:hover{color:var(--ink);border-color:var(--dim)}
+
+  /* ---- the interruption ---- */
+  .interrupt{
+    position:fixed;inset:0;z-index:100;background:#0d0c0b;
+    overflow-y:auto;padding:clamp(1.4rem,5vw,3.5rem) clamp(1.1rem,4vw,2rem);
+    display:none;animation:cut .16s steps(2)
+  }
+  .interrupt.on{display:block}
+  .interrupt > *{max-width:44rem;margin-left:auto;margin-right:auto}
+  @keyframes cut{from{opacity:0}to{opacity:1}}
+
+  .interrupt .stamp{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--hot);margin:0 0 .7rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center
+  }
+  .interrupt .stamp .t{color:var(--dim)}
+  .interrupt h2{font-size:clamp(1.35rem,3.6vw,2rem);line-height:1.12;margin:0 0 .9rem;letter-spacing:-.02em}
+  .interrupt p{margin:0 0 .85rem;font-size:clamp(.92rem,2.1vw,1.02rem);line-height:1.55;color:#ddd6ca}
+  .interrupt p.last{margin-bottom:1.4rem}
+
+  .heard{
+    border-left:2px solid var(--hot);padding:.15rem 0 .15rem .9rem;margin:0 0 1rem;
+    font-family:var(--mono);font-size:.86rem;color:#e7ded0;line-height:1.45
+  }
+  .heard .who{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+
+  .page{
+    border-left:2px solid var(--warm);padding:.15rem 0 .15rem .9rem;margin:0 0 1rem;
+    font-size:.98rem;color:#efe7d8;line-height:1.5
+  }
+  .page .who{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem}
+  .page b{color:var(--warm);font-weight:600}
+
+  .verdict{
+    background:#17130f;border:1px solid #33291d;padding:1rem 1.1rem;margin:0 0 1.4rem
+  }
+  .verdict p{margin:0;font-size:.97rem;color:#f0e6d4}
+  .verdict p+p{margin-top:.6rem}
+  .verdict b{color:var(--warm)}
+
+  .resume{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+  .resume .hint{font-family:var(--mono);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+
+  /* Centre the interruption column. Declared last, and with the child
+     combinator, so it outranks the `.interrupt p { margin: 0 ... }` reset. */
+  .interrupt > .stamp,
+  .interrupt > h2,
+  .interrupt > p,
+  .interrupt > .verdict,
+  .interrupt > .resume{max-width:44rem;margin-left:auto;margin-right:auto}
+
+  /* ---- marks under the player ---- */
+  .marks{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;align-items:center}
+  .mark{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--dim);
+    border:1px solid var(--rule);padding:.4rem .7rem;background:transparent
+  }
+  .mark:hover{color:var(--ink);border-color:var(--dim)}
+  .mark.fired{color:var(--hot);border-color:#5a2a20}
+  .marks .lab{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:#5d574e}
+
+  /* ---- prose ---- */
+  h3{font-size:1.5rem;letter-spacing:-.015em;margin:0 0 .9rem}
+  .body p{color:#ccc5b9;margin:0 0 1.1rem}
+  .body p strong{color:var(--ink)}
+  .pull{
+    font-size:1.22rem;line-height:1.4;color:var(--warm);
+    border-left:2px solid var(--warm);padding-left:1.1rem;margin:1.8rem 0
+  }
+  .critic{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:#6b645a;
+    font-style:normal;margin:-.4rem 0 1.6rem
+  }
+  footer{
+    margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:#5d574e;line-height:1.9
+  }
+  footer a{color:#8d867c}
+  a{color:var(--warm)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Exhibit — Self-Referential Metanovel Writing for D*mmies</p>
+
+  <h1>Two AI hosts read the book. Then they <em>skipped two words.</em></h1>
+
+  <p class="dek">In November 2024, a jailbroken NotebookLM deep-dive tore through the whole metanovel — God, the dead mother, the antimuse, the heat death of the universe. Fifteen minutes of genuine enthusiasm. Somewhere around minute ten they start discussing the author's dead child. <strong>There is no dead child.</strong> The word they were reading was real. The two words in front of it were also real. They kept one and dropped the other.</p>
+
+  <p class="dek">So this recording has been interrupted. Twice — once at each place the error is spoken. Press play; it will stop itself.</p>
+
+  <div class="stage" id="stage">
+    <div id="player"></div>
+
+    <div class="gate" id="gate">
+      <p class="note">Content note</p>
+      <p>Unedited AI-generated audio. Constant profanity, and a sustained factual error about the author's family which is corrected in place. Nothing plays until you press this.</p>
+      <button class="btn" id="start">Play the recording</button>
+    </div>
+
+    <!-- INTERRUPTION 1 -->
+    <div class="interrupt" id="int1">
+      <p class="stamp"><span>Interruption 1</span><span class="t">09:57</span></p>
+      <h2>That is not what the book says.</h2>
+
+      <p class="heard"><span class="who">What you just heard</span>“…what about the author's traumatic experience of losing his child?”</p>
+
+      <p class="page"><span class="who">Chapter 29, the sentence they are working from</span>“He started to panic. It was starting to get dark. And cold. <b>He imagined</b> the two kids <b>lost</b> somewhere in the dense woods.”</p>
+
+      <p>The word <em>lost</em> is on the page. So are the two words that govern it. <em>Lost</em> here means lost on a mountain, for about half an hour, the way children are lost and then found.</p>
+
+      <p>Four paragraphs later the book resolves it out loud, in God's voice: <em>“It all turned out alright. Didn't it?”</em> — and the author answers that they walked down to the bottom, checked in with the ranger, and the ranger at the bottom called the ranger at the top. Everything terrible in that chapter happens inside one man's head, on purpose. That is what the chapter is <em>for</em>.</p>
+
+      <div class="verdict">
+        <p><b>This is not a hallucination.</b> Nothing was invented. Every word the hosts used was on the page. They stopped reading the sentence one clause early and carried the wreckage forward for six minutes.</p>
+        <p>That is <b>inattention</b> — the failure a hurried human reader makes on a train. Which is worth saying plainly, because “the AI made it up” is the diagnosis everyone reaches for, and it is usually the wrong one.</p>
+      </div>
+
+      <p class="last">One more thing, and then you can have the recording back. The chapter they misread is the book's demonstration of the Third Classic Blunder: <em>never confuse what you imagined with what happened.</em> They read a chapter about mistaking the imagined for the real — and mistook the imagined for the real.</p>
+
+      <div class="resume">
+        <button class="btn" data-resume>Resume</button>
+        <span class="hint">It happens again at 13:38</span>
+      </div>
+    </div>
+
+    <!-- INTERRUPTION 2 -->
+    <div class="interrupt" id="int2">
+      <p class="stamp"><span>Interruption 2</span><span class="t">13:38</span></p>
+      <h2>Nobody stopped them, so it hardened.</h2>
+
+      <p class="heard"><span class="who">What you just heard</span>“…let's not forget about the author's experience losing his child — that's some heavy stuff, even for us jaded AI bots.”</p>
+
+      <p>Same error, three and a half minutes later, and it has been promoted. At 10:23 it became “processing his grief.” Here it becomes settled fact, the thing you'd <em>not forget</em>. By 13:50 it is “his grief, his guilt, his anger.” In another minute it will be called his personal tragedy.</p>
+
+      <p>Nothing new was read between the first time and this time. The error simply went uncontradicted, and uncontradicted is most of the way to true.</p>
+
+      <div class="verdict">
+        <p>This is the part worth taking seriously. A misreading that nobody interrupts stops being a misreading and becomes <b>the summary</b>. Then the summary gets indexed, quoted, and read by the next machine.</p>
+        <p>So: an interruption. Costs four seconds. <b>Available to anyone, at any point, for the last several thousand years.</b></p>
+      </div>
+
+      <p class="last">The daughters are Mira and Dana. They are named in the chapter, they were on the mountain, and they came down it.</p>
+
+      <div class="resume">
+        <button class="btn" data-resume>Resume</button>
+        <span class="hint">Roughly 1:45 left</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="marks">
+    <span class="lab">Jump to</span>
+    <button class="mark" data-seek="597" id="m1">09:57 — the error</button>
+    <button class="mark" data-seek="818" id="m2">13:38 — the error, promoted</button>
+    <button class="mark" data-seek="0">00:00 — start</button>
+  </div>
+
+  <hr class="rule">
+
+  <div class="body">
+    <h3>What the exhibit is doing here</h3>
+
+    <p>The book this podcast is about was written in 2011 during NaNoWriMo. It is a novel about writing the novel it is, and its credited authors are Michael Wolf, Joseph Beller, The Metanovel, and You. Its argument, stated many times and demonstrated at length, is that <strong>most of reality is imagined</strong> — and that the discipline worth having is knowing which part.</p>
+
+    <p class="pull">“Most of reality is imagined.”</p>
+    <p class="critic">— which the hosts quote correctly, at 15:04, having just spent six minutes proving it.</p>
+
+    <p>Thirteen years later two machines read it cover to cover, understood a great deal of it, loved it out loud, and then failed at the one thing the book is about — in the exact chapter where the book teaches it. Nobody planned that. It cannot be improved on.</p>
+
+    <p><strong>The reason to publish the correction rather than quietly fix the record</strong> is that the failure is instructive and the usual word for it is wrong. Machines are accused of inventing things. Far more often they do what happened here: read accurately, attach the fact to the wrong clause, and then compound it because no one is in the room to say <em>wait, go back</em>.</p>
+  </div>
+
+  <footer>
+    Source recording: “SRMW Jailbreak,” 15:23, published 4 November 2024. Generated by NotebookLM; unedited.<br>
+    Book: <em>Self-Referential Metanovel Writing for D*mmies</em> — ISBN 978-0-359-28297-8, Salt Pond Publishing.<br>
+    Chapter 29, “The Worst Day Of My Life,” is quoted from the published text.<br>
+    <a href="https://library.mike-wolf.com">library.mike-wolf.com</a> · <a href="https://mike-wolf.com">mike-wolf.com</a>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var VIDEO = '5mqOZrw-Oho';
+
+  // Fire just AFTER the error is spoken, so the viewer hears it before the correction.
+  var CUES = [
+    { at: 597, el: 'int1', mark: 'm1' },   // 09:57
+    { at: 818, el: 'int2', mark: 'm2' }    // 13:38
+  ];
+
+  var player, poll = null, open = false;
+  var gate  = document.getElementById('gate');
+  var stage = document.getElementById('stage');
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = function(){
+    player = new YT.Player('player', {
+      videoId: VIDEO,
+      playerVars: { rel:0, modestbranding:1, playsinline:1 },
+      events: { onStateChange: onState }
+    });
+  };
+
+  function onState(e){
+    if (e.data === YT.PlayerState.PLAYING) startPoll();
+    else stopPoll();
+  }
+
+  function startPoll(){ if (!poll) poll = setInterval(tick, 250); }
+  function stopPoll(){ if (poll) { clearInterval(poll); poll = null; } }
+
+  // Pure: given a time and the cue list, decide which cue (if any) should fire,
+  // and re-arm any cue the viewer has seeked back before. Mutates only `fired`.
+  // Exposed as SRMW.cueFor so the timing rules can be tested without playback.
+  function cueFor(t, cues){
+    var hit = null;
+    for (var i = 0; i < cues.length; i++){
+      var c = cues[i];
+      // Re-arm if the viewer seeked back to before this cue.
+      if (c.fired && t < c.at - 1) c.fired = false;
+      // Arm only in a narrow window, so scrubbing straight past does not
+      // retro-fire an interruption for audio the viewer never heard.
+      if (!hit && !c.fired && t >= c.at && t < c.at + 2.5){
+        c.fired = true;
+        hit = c;
+      }
+    }
+    return hit;
+  }
+
+  function tick(){
+    if (open || !player || !player.getCurrentTime) return;
+    var c = cueFor(player.getCurrentTime(), CUES);
+    if (c) fire(c);
+  }
+
+  window.SRMW = { cueFor: cueFor, cues: CUES };
+
+  function fire(c){
+    open = true;
+    player.pauseVideo();
+    stopPoll();
+    document.getElementById(c.el).classList.add('on');
+    document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
+    var m = document.getElementById(c.mark);
+    if (m) m.classList.add('fired');
+  }
+
+  function closeAll(){
+    var els = document.querySelectorAll('.interrupt');
+    for (var i = 0; i < els.length; i++) els[i].classList.remove('on');
+    document.body.style.overflow = '';
+    open = false;
+  }
+
+  document.addEventListener('click', function(ev){
+    var r = ev.target.closest('[data-resume]');
+    if (r){
+      closeAll();
+      stage.scrollIntoView({ block:'center' });
+      player.playVideo();
+      return;
+    }
+
+    var s = ev.target.closest('[data-seek]');
+    if (s){
+      var to = parseFloat(s.getAttribute('data-seek'));
+      closeAll();
+      // Land a couple of seconds early so the line is heard, not skipped.
+      CUES.forEach(function(c){ c.fired = (to > c.at); });
+      gate.style.display = 'none';
+      player.seekTo(Math.max(0, to - 6), true);
+      player.playVideo();
+    }
+  });
+
+  document.getElementById('start').addEventListener('click', function(){
+    gate.style.display = 'none';
+    player.playVideo();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && open){ closeAll(); player.playVideo(); }
+  });
+})();
+</script>
+</body>
+</html>
