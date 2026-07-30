@@ -91,6 +91,12 @@
 
   footer{padding:2.5rem 0 5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#5d574e;line-height:2}
   footer a{color:#8d867c}
+
+  /* ---- self-referencing qr ---- */
+  .qr-block{display:flex;gap:1.2rem;align-items:center;margin-top:1.8rem;padding:1.1rem;border:1px solid var(--rule);background:#111}
+  .qr-block svg{width:6.5rem;height:6.5rem;flex:none;background:#fff}
+  .qr-block .cap{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 .4rem;display:block}
+  .qr-block p{margin:0;font-size:.85rem;color:#a9a196}
 </style>
 </head>
 <body>
@@ -293,6 +299,14 @@
       <p>The inner critic has notes. The inner critic always has notes.</p>
 
       <p>The offer is still open, it costs nothing, and the man who made it is currently letting a crew of machines finish his movie — which is either the strangest possible endorsement of the technique or the only one.</p>
+
+      <div class="qr-block">
+        <div id="qr-self" aria-hidden="true"></div>
+        <div>
+          <span class="cap">This code points here</span>
+          <p>Scan it and you land on this exact page — <a href="https://srmw.mike-wolf.com">srmw.mike-wolf.com</a>. If at first you don't succeed, go meta.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -307,6 +321,18 @@
   <a href="https://70yearswtf.substack.com">70 Years Old. WTF!</a><br>
   Quotations are from the published text. Page numbers are the printed ones.
 </div></footer>
+
+<script src="assets/qrcode.js"></script>
+<script>
+(function(){
+  var el = document.getElementById('qr-self');
+  if(!el) return;
+  var qr = qrcode(0, 'M');
+  qr.addData('https://srmw.mike-wolf.com/');
+  qr.make();
+  el.innerHTML = qr.createSvgTag(4, 8);
+})();
+</script>
 
 </body>
 </html>
