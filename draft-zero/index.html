@@ -52,31 +52,22 @@
   .stat .aside{font-size:.82rem;color:var(--dim);margin:.75rem 0 0;line-height:1.45}
 
   .strip-wrap{margin:2rem 0 2.5rem}
-  .strip{display:flex;flex-wrap:wrap;gap:4px;max-width:100%}
-  .strip a.day{
-    width:calc((100% - 4px * 9) / 10);
-    min-width:1.35rem;
-    max-width:1.75rem;
-    aspect-ratio:1;
-    display:block;
-    text-decoration:none;
-    flex-shrink:0;
-  }
+  .strip{display:flex;flex-wrap:wrap;gap:6px 4px;max-width:100%}
+  .strip .cell{display:flex;flex-direction:column;align-items:center;gap:3px;width:calc((100% - 30 * 4px) / 31);min-width:1.1rem;max-width:1.75rem}
+  .strip a.day{width:100%;aspect-ratio:1;display:block;text-decoration:none}
+  .strip a.day:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   .strip a.day.filled{background:var(--warm);border:1px solid var(--warm)}
   .strip a.day.ai-only{background:transparent;border:1px solid var(--hot)}
   .strip a.day.empty{background:var(--rule);border:1px solid var(--rule)}
   .strip a.day.future{opacity:.35}
-  .strip-labels{display:flex;flex-wrap:wrap;gap:4px;margin-top:.35rem;max-width:100%}
-  .strip-labels span{
-    width:calc((100% - 4px * 9) / 10);
-    min-width:1.35rem;max-width:1.75rem;
-    font-family:var(--mono);font-size:.58rem;color:var(--dim);
-    text-align:center;flex-shrink:0;height:.85rem;
-  }
+  .strip .cell span{font-family:var(--mono);font-size:.58rem;line-height:1;color:var(--dim);height:.6rem}
 
   .chart-block{margin:2rem 0}
   .chart-block svg{width:100%;height:auto;display:block;max-width:100%}
   .chart-note{font-family:var(--mono);font-size:.68rem;color:var(--dim);margin-top:.6rem}
+  .legend{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;color:var(--dim);margin-top:.7rem}
+  .legend i{display:inline-block;width:1.4rem;height:0;border-top:2px solid;vertical-align:middle;margin-right:.45rem}
+  .legend .mike i{border-color:var(--warm)} .legend .ai i{border-color:var(--hot)} .legend .par i{border-top:2px dashed var(--dim)}
 
   .entry{margin:2.5rem 0;padding-top:.5rem}
   .entry .meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--dim);margin:0 0 .9rem}
@@ -99,7 +90,7 @@
   <a class="n" href="/#broken">Buy the Broken One</a>
   <a class="n" href="/#interruption">The Interruption</a>
   <a class="n" href="/#movie">The Movie</a>
-  <a class="n" href="/draft-zero">Draft Zero</a>
+  <a class="n" href="/draft-zero/">Draft Zero</a>
 </div></nav>
 
 <section>
@@ -125,7 +116,6 @@
 
     <div class="strip-wrap">
       <div class="strip" id="oct-strip" aria-label="October days"></div>
-      <div class="strip-labels" id="strip-labels" aria-hidden="true"></div>
     </div>
 
     <div class="chart-block" id="chart-root"></div>
@@ -148,7 +138,7 @@
   </div>
 </section>
 
-<section id="entries-section">
+<section id="entries-section" hidden>
   <div class="wrap" id="entries-root"></div>
 </section>
 
@@ -224,8 +214,15 @@
     }).format(dt);
   }
 
+  // ?asof=2026-10-15 renders the page as of that date (preview only; the data is the same).
+  var ASOF = (function(){
+    var m = /[?&]asof=(\d{4})-(\d{2})-(\d{2})/.exec(location.search);
+    return m ? new Date(utcForNY(+m[1], +m[2], +m[3], 12, 0, 0)) : null;
+  })();
+  function nowDate(){ return ASOF || new Date(); }
+
   function todayOctoberDay(){
-    var p = nyParts(new Date());
+    var p = nyParts(nowDate());
     if (p.year < OCT_YEAR || (p.year === OCT_YEAR && p.month < 10)) return 0;
     if (p.year > OCT_YEAR || (p.year === OCT_YEAR && p.month > 10)) return 32;
     return p.day;
@@ -235,7 +232,7 @@
     var el = document.getElementById('countdown');
     if (!el) return;
     var target = utcForNY(2026, 11, 1, 0, 0, 0);
-    var now = Date.now();
+    var now = nowDate().getTime();
     if (now >= target){
       el.innerHTML = 'November has started.';
       return;
@@ -294,124 +291,118 @@
     var today = todayOctoberDay();
     root.innerHTML = '';
     for (var d = 1; d <= 31; d++){
+      var cell = document.createElement('div');
+      cell.className = 'cell';
       var a = document.createElement('a');
       a.className = 'day';
       a.href = '#day-' + d;
-      a.title = 'October ' + d;
       var e = byDay[d];
+      var state;
       if (e){
         var human = e.paragraphs.some(function(p){ return p.kind === 'human'; });
         a.classList.add(human ? 'filled' : 'ai-only');
+        state = human ? 'Mike wrote' : 'AI writers only';
       } else {
         a.classList.add('empty');
+        state = 'no entry';
       }
-      if (today > 0 && d > today) a.classList.add('future');
-      else if (today === 0) a.classList.add('future');
-      root.appendChild(a);
-    }
-    var labels = document.getElementById('strip-labels');
-    if (labels){
-      labels.innerHTML = '';
-      for (var i = 1; i <= 31; i++){
-        var sp = document.createElement('span');
-        if (i === 1 || i === 10 || i === 20 || i === 31) sp.textContent = String(i);
-        labels.appendChild(sp);
-      }
+      if (today === 0 || (today <= 31 && d > today)){ a.classList.add('future'); if (!e) state = 'not yet'; }
+      a.title = 'October ' + d + ': ' + state;
+      a.setAttribute('aria-label', a.title);
+      var lab = document.createElement('span');
+      lab.setAttribute('aria-hidden', 'true');
+      if (d === 1 || d === 10 || d === 20 || d === 31) lab.textContent = String(d);
+      cell.appendChild(a);
+      cell.appendChild(lab);
+      root.appendChild(cell);
     }
   }
+
+  function niceMax(v){
+    var steps = [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 25000, 50000, 60000, 75000, 100000, 150000, 200000, 250000, 500000, 1000000];
+    for (var i = 0; i < steps.length; i++) if (v <= steps[i]) return steps[i];
+    return Math.ceil(v / 1000000) * 1000000;
+  }
+  function kfmt(v){ return v >= 1000 ? (Math.round(v / 100) / 10).toString().replace(/\.0$/, '') + 'k' : String(v); }
 
   function renderChart(entries){
     var root = document.getElementById('chart-root');
     if (!root) return;
     var series = cumulativeSeries(entries);
-    var cur = todayOctoberDay();
-    if (cur === 0) cur = 0;
-    else if (cur > 31) cur = 31;
+    var today = todayOctoberDay();
     var hasEntries = entries.length > 0;
-    var scaleDay = 31;
-    if (cur > 0 && cur <= 31) scaleDay = cur;
-    var plotThrough = 31;
-    var lineEnd = hasEntries ? (cur > 0 && cur <= 31 ? cur : 31) : 0;
+    // Lines stop at today (or at the last entry if we are past October).
+    var lineEnd = !hasEntries ? 0 : (today >= 1 && today <= 31 ? today : 31);
 
-    var maxY = NANO_PAR;
-    for (var i = 0; i < scaleDay; i++){
-      maxY = Math.max(maxY, series.mike[i], series.ai[i], series.par[i]);
-    }
-    if (maxY < 1) maxY = NANO_PAR;
+    // One y scale for the whole month: the full par line always fits.
+    var top = series.par[30];
+    for (var i = 0; i < 31; i++) top = Math.max(top, series.mike[i], series.ai[i]);
+    var maxY = niceMax(top);
 
-    var W = 640, H = 220, pad = { l: 48, r: 16, t: 20, b: 36 };
+    // A narrower drawing on phones keeps the chart text readable after scaling.
+    var W = root.clientWidth && root.clientWidth < 520 ? 380 : 640, H = 240, pad = { l: 44, r: 16, t: 14, b: 30 };
     var iw = W - pad.l - pad.r, ih = H - pad.t - pad.b;
-
     function xAt(day){ return pad.l + ((day - 1) / 30) * iw; }
     function yAt(val){ return pad.t + ih - (val / maxY) * ih; }
-
-    function polyline(vals, color, dash, through){
+    function line(vals, color, dash, through){
       var pts = [];
-      var last = through || plotThrough;
-      for (var d = 1; d <= last; d++){
-        pts.push(xAt(d).toFixed(1) + ',' + yAt(vals[d - 1]).toFixed(1));
-      }
-      var dashAttr = dash ? ' stroke-dasharray="6 4"' : '';
-      return '<polyline fill="none" stroke="' + color + '" stroke-width="2"' + dashAttr + ' points="' + pts.join(' ') + '"/>';
+      for (var d = 1; d <= through; d++) pts.push(xAt(d).toFixed(1) + ',' + yAt(vals[d - 1]).toFixed(1));
+      return '<polyline fill="none" stroke="' + color + '" stroke-width="2"' + (dash ? ' stroke-dasharray="6 4"' : '') + ' points="' + pts.join(' ') + '"/>';
     }
-
-    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Cumulative words through October">' +
-      '<line x1="' + pad.l + '" y1="' + (pad.t + ih) + '" x2="' + (pad.l + iw) + '" y2="' + (pad.t + ih) + '" stroke="var(--rule)"/>' +
-      '<line x1="' + pad.l + '" y1="' + pad.t + '" x2="' + pad.l + '" y2="' + (pad.t + ih) + '" stroke="var(--rule)"/>' +
-      '<text x="' + pad.l + '" y="' + (H - 8) + '" fill="var(--dim)" font-family="var(--mono)" font-size="10">Oct 1</text>' +
-      '<text x="' + (pad.l + iw - 28) + '" y="' + (H - 8) + '" fill="var(--dim)" font-family="var(--mono)" font-size="10">Oct 31</text>' +
-      '<text x="6" y="' + (pad.t + 8) + '" fill="var(--dim)" font-family="var(--mono)" font-size="10" transform="rotate(-90 12 ' + (pad.t + ih / 2) + ')">words</text>' +
-      polyline(series.par, 'var(--dim)', true, plotThrough) +
-      '<text x="' + (pad.l + iw * 0.72) + '" y="' + (yAt(series.par[14]) - 6) + '" fill="var(--dim)" font-family="var(--mono)" font-size="9">NaNo par</text>';
-
-    if (hasEntries && lineEnd > 0){
-      svg += polyline(series.mike, 'var(--warm)', false, lineEnd);
-      svg += polyline(series.ai, 'var(--hot)', false, lineEnd);
+    var txt = ' fill="var(--dim)" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="10"';
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Words written through October, cumulative, against NaNo par">';
+    [0, maxY / 2, maxY].forEach(function(v){
+      var y = yAt(v).toFixed(1);
+      svg += '<line x1="' + pad.l + '" y1="' + y + '" x2="' + (pad.l + iw) + '" y2="' + y + '" stroke="var(--rule)"/>';
+      svg += '<text x="' + (pad.l - 6) + '" y="' + (+y + 3) + '" text-anchor="end"' + txt + '>' + kfmt(v) + '</text>';
+    });
+    [1, 10, 20, 31].forEach(function(d){
+      svg += '<text x="' + xAt(d).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle"' + txt + '>Oct ' + d + '</text>';
+    });
+    svg += line(series.par, 'var(--dim)', true, 31);
+    svg += '<text x="' + xAt(25).toFixed(1) + '" y="' + (yAt(series.par[24]) - 10).toFixed(1) + '" text-anchor="end"' + txt + '>NaNo par, 1,667 a day</text>';
+    if (lineEnd > 0){
+      svg += line(series.ai, 'var(--hot)', false, lineEnd);
+      svg += line(series.mike, 'var(--warm)', false, lineEnd);
     }
     svg += '</svg>';
+    svg += '<div class="legend"><span class="mike"><i></i>Mike</span><span class="ai"><i></i>The compadres</span><span class="par"><i></i>NaNo par</span></div>';
+    if (!hasEntries) svg += '<p class="chart-note">Day 1 posts on October 1.</p>';
 
-    var note = '';
-    if (!hasEntries){
-      note = '<p class="chart-note">Day 1 posts on October 1.</p>';
+    // Mike's line gets its own small chart when it would be flatter than 2 px on the shared scale.
+    var mikeNow = lineEnd > 0 ? series.mike[lineEnd - 1] : 0;
+    if (mikeNow > 0 && (mikeNow / maxY) * ih < 2){
+      var H2 = 120, ih2 = H2 - pad.t - pad.b, m2 = niceMax(mikeNow);
+      var pts = [];
+      for (var d = 1; d <= lineEnd; d++) pts.push(xAt(d).toFixed(1) + ',' + (pad.t + ih2 - (series.mike[d - 1] / m2) * ih2).toFixed(1));
+      svg += '<p class="chart-note" style="color:var(--warm);margin-top:1.4rem">Mike alone, on his own scale</p>' +
+        '<svg viewBox="0 0 ' + W + ' ' + H2 + '" role="img" aria-label="Mike\'s words alone, on their own scale">' +
+        '<line x1="' + pad.l + '" y1="' + (pad.t + ih2) + '" x2="' + (pad.l + iw) + '" y2="' + (pad.t + ih2) + '" stroke="var(--rule)"/>' +
+        '<text x="' + (pad.l - 6) + '" y="' + (pad.t + ih2 + 3) + '" text-anchor="end"' + txt + '>0</text>' +
+        '<text x="' + (pad.l - 6) + '" y="' + (pad.t + 3) + '" text-anchor="end"' + txt + '>' + kfmt(m2) + '</text>' +
+        '<polyline fill="none" stroke="var(--warm)" stroke-width="2" points="' + pts.join(' ') + '"/></svg>';
     }
-
-    var mikeSpan = 0;
-    if (cur > 0 && series.mike[cur - 1] > 0){
-      mikeSpan = yAt(0) - yAt(series.mike[cur - 1]);
-    }
-
-    root.innerHTML = svg + note;
-
-    if (mikeSpan > 0 && mikeSpan < 2 && hasEntries && lineEnd > 0){
-      var mMax = Math.max(1, series.mike[lineEnd - 1]);
-      var mikePts = [];
-      var last = lineEnd;
-      for (var d = 1; d <= last; d++){
-        mikePts.push(xAt(d).toFixed(1) + ',' + (pad.t + ih - (series.mike[d - 1] / mMax) * ih).toFixed(1));
-      }
-      var inset = '<svg viewBox="0 0 ' + W + ' ' + (H * 0.55) + '" role="img" aria-label="Mike cumulative words" style="margin-top:1rem">' +
-        '<line x1="' + pad.l + '" y1="' + (pad.t + ih * 0.55) + '" x2="' + (pad.l + iw) + '" y2="' + (pad.t + ih * 0.55) + '" stroke="var(--rule)"/>' +
-        '<polyline fill="none" stroke="var(--warm)" stroke-width="2" points="' + mikePts.join(' ') + '"/>' +
-        '<text x="' + pad.l + '" y="14" fill="var(--warm)" font-family="var(--mono)" font-size="9">Mike</text></svg>';
-      root.innerHTML += inset;
-    }
+    root.innerHTML = svg;
   }
 
   function renderEntries(entries){
     var root = document.getElementById('entries-root');
     if (!root) return;
     var sorted = entries.slice().sort(function(a, b){ return b.day - a.day; });
+    var section = document.getElementById('entries-section');
     if (!sorted.length){
       root.innerHTML = '';
+      if (section) section.hidden = true;
       return;
     }
+    if (section) section.hidden = false;
     root.innerHTML = sorted.map(function(entry){
       var meta = 'Day ' + entry.day + ' · ' + formatLongDate(entry.date) + ' · foretells ' + formatLongDate(entry.foretells);
       var paras = entry.paragraphs.map(function(p){
         var cls = p.kind === 'human' ? 'human' : 'ai';
-        var label = p.kind === 'human'
+        var label = escapeHtml(p.kind === 'human'
           ? p.writer
-          : p.writer + ' · ' + (p.model || '');
+          : p.writer + ' · ' + (p.model || ''));
         return '<div class="para ' + cls + '"><p class="who">' + label + '</p><p>' + escapeHtml(p.text) + '</p></div>';
       }).join('');
       return '<article class="entry" id="day-' + entry.day + '"><p class="meta">' + meta + '</p><h3>' + escapeHtml(entry.title) + '</h3>' + paras + '</article>';

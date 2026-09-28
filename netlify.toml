@@ -2,11 +2,6 @@
   publish = "."
   command = ""
 
-[[redirects]]
-  from = "/draft-zero"
-  to = "/draft-zero.html"
-  status = 200
-
 [[headers]]
   for = "/*"
   [headers.values]
