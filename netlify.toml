@@ -2,6 +2,12 @@
   publish = "."
   command = ""
 
+[[redirects]]
+  from = "/ai/comment"
+  to = "/.netlify/functions/ai-comment"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

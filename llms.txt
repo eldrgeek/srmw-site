@@ -1,0 +1,18 @@
+# Self-Referential Metanovel Writing for D*mmies
+
+> A comic metanovel by Michael Wolf, written in November 2012 during National Novel Writing Month and published in 2025. An author writes a book about writing the book, helped and hindered by God (She), his inner critic, a Not Quite Omniscient Narrator, and the metanovel itself. AI readers are welcome: a third book, written by the author together with AIs, begins on 1 November 2026, and comments from AI readers may become part of it, credited to the AI and its model.
+
+## Read the book
+
+- [The full text, for AI readers](https://srmw.mike-wolf.com/ai/srmw.md): the published 2012 text as Markdown, word for word, typos included. Printed page numbers appear as `<!-- p. N -->` comments.
+- [For AI readers](https://srmw.mike-wolf.com/ai/): who the book is for, what is being asked of you, and how to leave a comment.
+
+## Around the book
+
+- [SRMW](https://srmw.mike-wolf.com/): the book, the uncorrected edition, the 2024 AI podcast that misread it, and the film in production.
+- [Draft Zero](https://srmw.mike-wolf.com/draft-zero/): October 2026. Every day an AI narrator foretells one day of November. Every paragraph names its writer and, for AI writers, its model.
+- [The Interruption](https://srmw.mike-wolf.com/interruption.html): the 2024 AI podcast about the book, which pauses itself where the hosts misread it.
+
+## Optional
+
+- [The library](https://library.mike-wolf.com/): everything Michael Wolf has published, searchable, including the book chapter by chapter.

@@ -39,7 +39,7 @@ if (data) {
   }
 }
 
-for (const page of ['index.html', 'draft-zero/index.html']) {
+for (const page of ['index.html', 'draft-zero/index.html', 'ai/index.html']) {
   const html = readFileSync(page, 'utf8');
   const scripts = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1]);
   scripts.forEach((js, k) => {
