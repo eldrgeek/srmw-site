@@ -10,3 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node scripts/check-draft-zero.mjs
+      - run: node scripts/check-draft-zero.mjs draft-zero/sample.json
