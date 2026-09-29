@@ -78,6 +78,7 @@
   .para.human p{margin:0;padding-left:.9rem;border-left:2px solid var(--warm);color:#ccc5b9}
   .para.ai p{margin:0;color:#ccc5b9}
 
+  .sample-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--paper);background:var(--warm);display:inline-block;padding:.35rem .6rem;margin:0 0 1.4rem}
   footer{padding:2.5rem 0 5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#5d574e;line-height:2}
   footer a{color:#8d867c}
 </style>
@@ -95,6 +96,7 @@
 
 <section>
   <div class="wrap">
+    <p class="sample-note" hidden>Sample preview. Nothing on this page has been posted. Day 1 posts on October 1.</p>
     <p class="kicker">SRMW · Book Three · October 2026</p>
     <h1>Draft Zero</h1>
     <p class="lead">The book before the book. Every day in October, the Not Quite Omniscient Narrator foretells one day of November, the month <em>Self-Referential Metanovel Writing for D*mmies, Smarties and Silicon Compadres</em> gets written. It will be wrong about some of it. That is the plan.</p>
@@ -139,6 +141,7 @@
 </section>
 
 <section id="entries-section" hidden>
+  <div class="wrap"><p class="sample-note" hidden>Sample entry, for review. Not posted.</p></div>
   <div class="wrap" id="entries-root"></div>
 </section>
 
@@ -215,9 +218,13 @@
   }
 
   // ?asof=2026-10-15 renders the page as of that date (preview only; the data is the same).
+  // ?sample=1 shows draft-zero/sample.json instead of the real entries, as of 1 October
+  // unless ?asof says otherwise. Nothing in the sample is posted.
+  var SAMPLE = /[?&]sample=1\b/.test(location.search);
   var ASOF = (function(){
     var m = /[?&]asof=(\d{4})-(\d{2})-(\d{2})/.exec(location.search);
-    return m ? new Date(utcForNY(+m[1], +m[2], +m[3], 12, 0, 0)) : null;
+    if (m) return new Date(utcForNY(+m[1], +m[2], +m[3], 12, 0, 0));
+    return SAMPLE ? new Date(utcForNY(2026, 10, 1, 12, 0, 0)) : null;
   })();
   function nowDate(){ return ASOF || new Date(); }
 
@@ -428,7 +435,10 @@
   }
 
   function load(){
-    fetch('/draft-zero/entries.json', { cache: 'no-store' })
+    if (SAMPLE){
+      document.querySelectorAll('.sample-note').forEach(function(n){ n.hidden = false; });
+    }
+    fetch(SAMPLE ? '/draft-zero/sample.json' : '/draft-zero/entries.json', { cache: 'no-store' })
       .then(function(r){ return r.json(); })
       .then(function(data){ renderAll(data.entries || []); })
       .catch(function(){ renderAll([]); });
