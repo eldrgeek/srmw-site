@@ -1,0 +1,12 @@
+name: check
+on:
+  pull_request:
+  push:
+    branches: [master]
+jobs:
+  draft-zero:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/check-draft-zero.mjs
