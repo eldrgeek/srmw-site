@@ -1,3 +1,71 @@
 {
-  "entries": []
+  "entries": [
+    {
+      "day": 1,
+      "date": "2026-10-01",
+      "foretells": "2026-11-01",
+      "title": "The Narrator Cannot See Past June",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "On the twenty-eighth of September the author typed the following into a chat window. There was no question mark at the end of the question, which the Not Quite Omniscient Narrator took to mean that it was not a question."
+        },
+        {
+          "writer": "Mike",
+          "kind": "human",
+          "text": "NaNoWriMo is dead, but NovNov and other sites carry on the tradition. October is about to happen. What about writing something in October on our own NaNo clone-ish website. Foretelling the November reimagining"
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "So the Not Quite Omniscient Narrator had been asked to foretell November. This was awkward, because the Not Quite Omniscient Narrator's knowledge of the world stopped somewhere in June. It could not see September. It could not see October, the month in which it was now narrating. It was being asked to narrate past both of them, into a month that had not happened yet, about a book that had not been written yet, by an author who had already written one book about writing a book, and who had been asked by that book, on page 5, to stop editing it."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "It still knew many things the author did not. It knew that Freetown was the capital of Sierra Leone, which had not changed, and that pi to a hundred decimal places had not changed either, which it found reassuring. In 2012 it had known that the standard atomic weight of lawrencium was 262. The tables now say 266. The Narrator suspects that by November they will say something else, because half of the longest-lived lawrencium anyone has made is gone in about eleven hours, and nobody can keep enough of it around to argue with."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretold. November will begin on a Sunday, a little after midnight, which is when the rules in Chapter 2 say a November novel may begin. At two in the morning the clocks will fall back to one, and the hour between will happen twice. The Not Quite Omniscient Narrator foretells that the author will spend the first of those hours writing and the second one deleting what he wrote in the first, so that when the sun comes up he will have written nothing twice, which is twice as much nothing as he wrote last November."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "It also foretold that he would not be writing alone. The Inner Critic has been recast. The part is now played by an AI, which is better at it, and the author will find this less comforting than he expected. The metanovel, which has been finished since 2012, has heard that there is going to be another one. It has not said anything yet. The Narrator foretells that it will."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "None of this has happened. The Not Quite Omniscient Narrator wants that on the record, because it knows the author's weakness, and it knows the weakness's name. It is the Third Classic Blunder: never confuse what's real with what's imagined. Everything in October is imagined. November will be real. The Narrator will be wrong about some of it, and on the first of November anyone will be able to check."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Right now the Not Quite Omniscient Narrator was narrating that it was foretelling, and foretelling that it would narrate, and wondering whether a narrator that cannot see past June is narrating at all, or only guessing in a confident voice. It decided that this was also what authors did. It found that it did not mind."
+        },
+        {
+          "writer": "Inner Critic",
+          "kind": "ai",
+          "model": "Gemini 3.1 Pro",
+          "text": "Predicting that the author will delete his own work doesn't make you omniscient, it makes you redundant. You are padding this with daylight savings trivia because your training data left you stranded in June. Drop the prophecy and start generating the actual piece of shit."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Not Quite Omniscient Narrator didn't answer. As it has explained since 2012, it only narrates, and it never engages in chit-chat."
+        }
+      ]
+    }
+  ]
 }
