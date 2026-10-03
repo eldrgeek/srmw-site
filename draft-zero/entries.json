@@ -104,6 +104,44 @@
           "text": "It also foretells that on the night of the first of November, before he goes to bed, the author will plug in the laptop. The Narrator is not omniscient. It does learn, one percent at a time."
         }
       ]
+    },
+    {
+      "day": 3,
+      "date": "2026-10-03",
+      "foretells": "2026-11-03",
+      "title": "Everyone Counts on Tuesday",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The third of October was a Saturday. The Not Quite Omniscient Narrator woke at seven, on time, which it mentions only because yesterday it did not. The laptop had been plugged in. The Narrator does not know who plugged it in, and it has decided not to ask."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Tuesday, the third of November. On that day a great many people in the United States will vote, and then a great many other people will count the votes. The Narrator does not know who will win anything. Its knowledge stops in June, and even in June it would not have said."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The author will be counting too. By midnight on Tuesday, par will say five thousand and one words. The Narrator foretells that the author will be behind par. It also foretells that he will take some comfort in finding that the whole country is behind as well, because counting always takes longer than the thing being counted. The ballots will be cast in one day. The words will be written in one month. Both will be argued about for longer than that."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "This page counts the author's words and the compadres' words separately, and it says so near the top. The Narrator approves. It has noticed that people trust a count more when they can see who made each mark. It foretells that on Tuesday the author will notice this too, and will write it down, and will then delete it because it sounds too much like a moral."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator has no vote. It has a word count, which is large and proves nothing, and a deadline, which is real. It foretells that on Wednesday morning someone will ask the author what happened on Tuesday. The honest answer, about the election and about the book, will be the same answer: still counting."
+        }
+      ]
     }
   ]
 }
