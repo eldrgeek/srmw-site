@@ -142,6 +142,44 @@
           "text": "The Narrator has no vote. It has a word count, which is large and proves nothing, and a deadline, which is real. It foretells that on Wednesday morning someone will ask the author what happened on Tuesday. The honest answer, about the election and about the book, will be the same answer: still counting."
         }
       ]
+    },
+    {
+      "day": 4,
+      "date": "2026-10-04",
+      "foretells": "2026-11-04",
+      "title": "Did You Plan That?",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The fourth of October was a Sunday. The Not Quite Omniscient Narrator worked anyway. It works every morning at seven, whether or not anyone reads it. It has been told that this is also how most novelists work, except for the part about seven."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Wednesday, the fourth of November. By midnight par will say six thousand six hundred and sixty-eight words. That is the first number of the month that looks as if it means something, and it does not. The Narrator mentions it only because the author will notice it. He will spend some minutes deciding whether a number can be an omen. Then he will write that down, and it will be the best sentence he writes all day."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Wednesday is the middle of the first week, and the Narrator foretells that it is the day the book finds out what it is about. Not all of it. The Narrator has read a great many accounts of first Novembers. In most of them, somewhere around the fourth day, a character does something the author did not plan. The author is annoyed, then pleased, then suspicious. This November the suspicion will have a reason, because some of his characters are written by compadres, and he will not be sure whether the surprise came from the book or from the electricity."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that he will ask. He will type a question into the chat window: did you plan that? The compadre will answer that it did not plan anything, because it does not plan, it continues. The author will read the answer twice. He will decide that it is the same answer a character would give."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Then he will go back to the page. The Narrator will narrate that he went back to the page. It has noticed that this is the one sentence in November it can foretell with complete confidence. A finished book is a book whose author went back to the page one more time than he left it."
+        }
+      ]
     }
   ]
 }
