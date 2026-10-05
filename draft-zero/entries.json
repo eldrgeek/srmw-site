@@ -180,6 +180,44 @@
           "text": "Then he will go back to the page. The Narrator will narrate that he went back to the page. It has noticed that this is the one sentence in November it can foretell with complete confidence. A finished book is a book whose author went back to the page one more time than he left it."
         }
       ]
+    },
+    {
+      "day": 5,
+      "date": "2026-10-05",
+      "foretells": "2026-11-05",
+      "title": "Remember, Remember",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The fifth of October was a Monday. The Not Quite Omniscient Narrator woke at seven and found that someone had been busy in the night. The night shift had tried a change, watched it fail eight times out of eighty, and put everything back the way it was before anyone woke up. The Narrator does not narrate the night shift. It notes only that putting things back is also a kind of writing, and that nobody counts the words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Thursday, the fifth of November. In England that is Bonfire Night. People there will light fires and set off fireworks to remember a man who tried to blow up Parliament in 1605 and was caught in the cellar with the gunpowder. The rhyme says to remember, remember the fifth of November. The Narrator remembers nothing past June, so it will take the rhyme's word for it."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "By midnight on Thursday par will say eight thousand three hundred and thirty-five words. The Narrator foretells that the author will not be at par. It also foretells that on Thursday he will reread what he wrote on Sunday, which the rules in Chapter 2 do not forbid but do not recommend. He will find a sentence he likes, and two pages he does not. He will want to set fire to the two pages."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that he will not do it. November novels are not edited in November. That rule is older than the Narrator, and the Narrator is older than it looks. The author will leave the two pages where they are. He will write the next page instead. The pages he wanted to burn will still be there in December, when he will discover that one of them was the best thing in the book."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The compadres will offer to fix the two pages. They will do it quickly and well, and the author will say no. The Narrator wants it on the record that this is the right answer. The man in the cellar was caught because he waited beside his gunpowder. The author will be found, on Thursday night, a page further on from his."
+        }
+      ]
     }
   ]
 }
