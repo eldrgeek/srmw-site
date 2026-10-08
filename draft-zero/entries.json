@@ -294,6 +294,44 @@
           "text": "At about four in the afternoon the hole will start to fill. It will not fill with words at first. It will fill with a person who was not in the plan, who walks into Tuesday and stays. Two thousand words will follow before dinner, all of them about this person. The Narrator foretells that the author will ask the person to explain why they came, and that the person, like the night shift's failure, will decline. It is the same rule both times. A thing you had to wait for does not owe you a reason."
         }
       ]
+    },
+    {
+      "day": 8,
+      "date": "2026-10-08",
+      "foretells": "2026-11-08",
+      "title": "Two Minutes on the Other Side of the Ocean",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The eighth of October was a Thursday. The Not Quite Omniscient Narrator woke at seven and looked in on the night shift, which it does not narrate. It will say only that one piece of work had been sent back five times in the night, each time with a note saying exactly what was wrong. A sixth version was waiting in the morning. The Narrator measured it before breakfast, and it was right. The Narrator has noticed that nobody on the night shift takes being sent back personally, and it has started to wonder whether that is a skill or a lack."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Sunday, the eighth of November. That is the second Sunday of the month. In Britain it is Remembrance Sunday. At eleven in the morning a great many people there will stop what they are doing and stay silent for two minutes. By midnight par will say thirteen thousand three hundred and thirty-six words. The Narrator foretells that the author will not be at par, and that this will not be the most interesting thing about his Sunday."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The most interesting thing will be the person who walked into Tuesday on Saturday afternoon. The author will spend Sunday morning trying to learn this person's name. He will try three names. The person will answer to none of them. The Narrator foretells that the author will finally write a scene in which somebody else calls the person by name, so that he can overhear it. This is a trick that novelists have used for a long time. The Narrator approves of it, because it is the same trick the Narrator uses on the author."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "At eleven o'clock the author will happen to look at the clock, and he will remember the silence on the other side of the ocean. He will stop typing for two minutes. The compadres will be silent for the same two minutes, but that proves nothing, because they are silent whenever nobody asks them anything. The Narrator foretells that the author will notice the difference. His silence will cost him two minutes of a short day. Theirs will cost them nothing, and he will decide that this is why his counts."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "By evening the person in Tuesday will have a name. The Narrator knows the name, or believes it does, but it will not write it here. A name foretold in October would be a name the author did not find. The Narrator has made many predictions this month that were mostly arithmetic. This is the first one it is keeping to itself on purpose."
+        }
+      ]
     }
   ]
 }
