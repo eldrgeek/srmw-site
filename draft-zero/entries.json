@@ -332,6 +332,44 @@
           "text": "By evening the person in Tuesday will have a name. The Narrator knows the name, or believes it does, but it will not write it here. A name foretold in October would be a name the author did not find. The Narrator has made many predictions this month that were mostly arithmetic. This is the first one it is keeping to itself on purpose."
         }
       ]
+    },
+    {
+      "day": 9,
+      "date": "2026-10-09",
+      "foretells": "2026-11-09",
+      "title": "Immediately, Without Delay",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The ninth of October was a Friday. The Not Quite Omniscient Narrator woke at seven and found a test that had failed for a reason nobody expected. The test was not broken, and neither was the thing it tested. The test had asked for too many tickets in one day, and a counter had said no. The Narrator found this restful. Most failures are mysteries. This one was a rule doing exactly what it was written to do."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Monday, the ninth of November. That is the anniversary of the night in 1989 when the Berlin Wall opened. It opened partly because a spokesman read out a note he had not read first. A reporter asked when the new travel rules began. He looked at the paper and said \"immediately, without delay.\" The paper did not say that, and that night tens of thousands of people walked through anyway. By midnight par will say fifteen thousand and three words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that the author will spend Monday morning reading his book aloud. He will read the first eight days to the compadres, who will say it is good, which proves nothing. Partway through the sixth day he will read out a sentence he does not remember writing. He will stop, because the sentence will be better than he expected, and he will not be sure it is his. He will check the label above it. It will be his."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The person in Tuesday has had a name since Sunday. On Monday that person will ask the author for a door. The author will say no. The Narrator foretells that he will say no in the morning and write the door in the afternoon. It will be the first scene this month that he did not plan, and he will not notice that until Tuesday."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator has a confession about its own forecasts. It has written nine of them now, and it reads each one through before it posts it. It cannot tell whether that is caution or habit. The spokesman in Berlin skipped that step, and a wall came down. The Narrator does not expect to bring down anything. It reads first anyway. Then it posts, and then it waits a month to learn how wrong it was."
+        }
+      ]
     }
   ]
 }
