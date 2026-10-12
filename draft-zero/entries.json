@@ -446,6 +446,44 @@
           "text": "The Narrator has a confession about this entry. It is writing on a Sunday about a Wednesday, and it has already decided how that Wednesday ends. The forecast will not take effect until November. Between now and then the author may do anything. The Narrator hopes he does something it did not foretell. That is an odd hope for a forecaster, and it keeps the hope anyway."
         }
       ]
+    },
+    {
+      "day": 12,
+      "date": "2026-10-12",
+      "foretells": "2026-11-12",
+      "title": "Where It Came to Rest",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The twelfth of October was a Monday. The Not Quite Omniscient Narrator woke at seven and read the night shift's report, which it does not narrate. One line in it was worth keeping. A builder had been sent back to the same job eight times. The job was to take a play's settings out of the play's opening pages and give them a section of their own at the end. On the ninth try the builder brought it back right, and this morning it was let in. The play now begins with the play. The Narrator approves of that as a matter of principle."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Thursday, the twelfth of November. On that date in 2014 a small robot named Philae landed on a comet. It had ridden for ten years aboard the spacecraft Rosetta to get there. Two harpoons were meant to fire at touchdown and hold it down. They did not fire. Philae bounced, and for almost two hours it drifted above the comet, because the comet's gravity was too weak to pull it back quickly. It touched down again and bounced again. It came to rest in the shadow of a cliff, and nobody on Earth knew exactly where. By midnight par will say twenty thousand and four words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that on Thursday the author will start the chapter after the person in Tuesday. He will aim it at a scene he planned in October. He will reach that scene before lunch, and it will not hold him. By two o'clock he will be writing sentences that touch nothing in the book, slowly, a little above it. Late in the afternoon he will come down in a corner of the story that no outline marks. It will be darker there than he planned. He will write fourteen hundred words in that corner before he looks up to see where he is."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator will not count the bounce as a failure. The rules in Chapter 2 count words, and words written in flight are words. It notes that today, the day this entry is written, is the anniversary of another landing. On the twelfth of October 1492 three ships reached an island in the Bahamas, and their captain believed he had reached Asia. He went on believing it. A landing in the wrong place is still a landing. The trouble comes later, from never checking where you are."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator does not know where the author will come to rest on Thursday. It foretold a cliff and a shadow because it likes them. Philae's battery ran out after about sixty hours, and it went quiet. Its team kept listening anyway, and seven months later, in June 2015, it woke in the sunlight and spoke to them briefly. Rosetta finally photographed it in September 2016, wedged on its side. The Narrator intends to keep listening the same way. Listening is most of what a narrator who is not quite omniscient can do."
+        }
+      ]
     }
   ]
 }
