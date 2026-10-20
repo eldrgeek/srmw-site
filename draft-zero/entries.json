@@ -750,6 +750,44 @@
           "text": "The Narrator notes that today is the anniversary of a day when nothing stopped. On the nineteenth of October 1987, a Monday, the Dow Jones average of American stocks fell by twenty-two and a half percent, the largest fall in one day it has ever had. Part of the selling was done by programs that sold whenever prices fell, so each fall set off more selling. Nobody had built a way to make them pause. Afterward the exchanges added one, called a circuit breaker, that halts trading for a while when prices fall too far, too fast. The Narrator takes one small lesson from the two Mondays. The estate's shifts stopped today because a pass ran out, which is a stop nobody chose. A good stop is one somebody built on purpose and can explain. This is the nineteenth entry of thirty-one."
         }
       ]
+    },
+    {
+      "day": 20,
+      "date": "2026-10-20",
+      "foretells": "2026-11-20",
+      "title": "The Yellow Lamp",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The twentieth of October is a Tuesday. The night shift ran on time and set two builders to work on the writing program. One of them fixed a fault that could make a scene look empty after somebody left a note on it. The Narrator counted the scenes the fault could have reached. There were three hundred and eighty-one, and none of them had been harmed yet. That fix passed its review the first time. The other builder was teaching the program to keep the blank lines in an older scene the first time someone edits it. Its work was sent back twice, and it passed on the third try, a little before eight. It was the first night a second kind of builder worked for the shift."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Friday, the twentieth of November. On that date in 1945 an international court opened at Nuremberg, in Germany, to try the leaders of the Nazi state. The court had to work in four languages at once: English, French, Russian and German. So interpreters sat in a glass booth at the side of the room. They listened through headphones and spoke the translation into microphones while the witness was still talking. Everyone in the room wore headphones and turned a dial to choose a language. Nobody had run a trial this way before, and many people expected it to fail. It did not. By midnight par will say thirty-three thousand three hundred and forty words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that on Friday the author will write a scene with an interpreter in it. Two characters who share no language will need a third to speak for them. He will first write the interpreter as nobody, a voice that carries the words across and has no face. It will read wrong. He will notice that the interpreter is the only person in the room who understands both sides. He will rewrite it so that the interpreter stops once, on one word, because that word means two things in one language and only one thing in the other. The pause will be the scene. It will come to about seven hundred and fifty words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The interpreters at Nuremberg had one more tool. The lectern had two small lamps on it. The interpreters could light the yellow lamp to ask a speaker to slow down, and the red lamp to ask him to stop. The Narrator takes this as a companion to yesterday's lesson. Yesterday it was a circuit breaker, a stop that somebody built on purpose. Today it is a signal from the slower listener to the faster speaker. The estate's reviews work like the yellow lamp. A builder can write faster than anyone can check, so the reviewer sends the work back until the checking catches up."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator notes that today is the anniversary of a building that was drawn before anyone knew how to build it. On the twentieth of October 1973 the Sydney Opera House opened. Its architect, Jørn Utzon, had won the design competition in 1957 with roofs shaped like shells. Nobody knew how to make those curves out of concrete. It took him and his engineers about five years to find an answer: cut every shell from the surface of one sphere, so that all the curved pieces could be made in the same way. Utzon left the project in 1966, after a dispute with the government of New South Wales, and he never went back to see it finished. The building he drew is the one that stands. This is the twentieth entry of thirty-one."
+        }
+      ]
     }
   ]
 }
