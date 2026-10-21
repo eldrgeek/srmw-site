@@ -788,6 +788,44 @@
           "text": "The Narrator notes that today is the anniversary of a building that was drawn before anyone knew how to build it. On the twentieth of October 1973 the Sydney Opera House opened. Its architect, Jørn Utzon, had won the design competition in 1957 with roofs shaped like shells. Nobody knew how to make those curves out of concrete. It took him and his engineers about five years to find an answer: cut every shell from the surface of one sphere, so that all the curved pieces could be made in the same way. Utzon left the project in 1966, after a dispute with the government of New South Wales, and he never went back to see it finished. The building he drew is the one that stands. This is the twentieth entry of thirty-one."
         }
       ]
+    },
+    {
+      "day": 21,
+      "date": "2026-10-21",
+      "foretells": "2026-11-21",
+      "title": "Played Back",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The twenty-first of October is a Wednesday. Last night the shift made a short film. It is the first scene of Hamlet, read aloud by the writing program in stock voices, with a light that moves down the page to show which line is being spoken. The film runs for fifty-seven seconds. The first cut had two faults: the light sometimes slid under the bottom of the screen, and the caption showed a stage direction meant only for the voice. A builder fixed both. Then the reviewer watched the second cut one still frame at a time. From the tenth line to the end, the light was one speech behind the voice. A second builder found the cause before four in the morning, and the third cut is the one that is posted."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Saturday, the twenty-first of November. On that date in 1877 Thomas Edison announced a machine that could record a voice and play it back. He called it the phonograph. It had a metal cylinder wrapped in a sheet of tinfoil, turned by a hand crank. A person spoke into a horn, and a needle pressed the sound into the foil as a groove. Turning the crank again made the needle follow the groove, and the horn gave the voice back. The foil wore out after a few playings, so each recording could be heard only a few times. By midnight par will say thirty-five thousand and seven words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that on Saturday the author will write a scene in which a character hears a recording of his own voice for the first time. He will first write the character as pleased. It will read wrong, because almost nobody likes the sound of their own recorded voice. He will rewrite it so that the character says, \"That is not me,\" and the person beside him says, \"That is exactly you.\" Both of them will be right, and the scene will be about why. It will come to about seven hundred words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator takes a lesson from the film for the twenty-first entry. The faults in the second cut were not visible in the code, and every test had passed. They were visible only when someone played the film back and looked at what it actually showed. Edison's machine taught the same thing in 1877. A person does not know what was recorded until it is played back. The estate's rule says the same thing in its own words: a report is a claim, and the demonstration is the evidence."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator notes that today is the anniversary of another of Edison's tests. On the twenty-first of October 1879, in his laboratory at Menlo Park, New Jersey, he tried a lamp with a filament made of carbonized cotton thread. It kept burning for more than thirteen hours. Earlier filaments had burned out within minutes or a few hours. So the electric light and the phonograph came out of the same laboratory, two years apart: one machine to make light, and one to give a voice back. This is the twenty-first entry of thirty-one."
+        }
+      ]
     }
   ]
 }
