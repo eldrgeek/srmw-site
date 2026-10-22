@@ -4,9 +4,10 @@
 //   1. draft-zero/entries.json must parse and match the schema the page reads
 //      (a malformed file blanks the counters, strip, chart and entries).
 //   2. every inline <script> in the checked pages must parse.
-//   3. both pages must carry the same-origin feedback chip (SOMA standard §8).
+//   3. every page must carry the same-origin feedback chip (SOMA standard §8),
+//      through soma-chip-loader.js or the direct script, with the vendored fallback present.
 // Usage: node scripts/check-draft-zero.mjs [entries.json]   (the argument is for the self-test)
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const problems = [];
 const fail = (m) => problems.push(m);
@@ -45,10 +46,18 @@ for (const page of ['index.html', 'draft-zero/index.html', 'ai/index.html']) {
   scripts.forEach((js, k) => {
     try { new Function(js); } catch (e) { fail(`${page}: inline script ${k + 1} does not parse (${e.message})`); }
   });
-  if (!html.includes('href="/vendor/soma-feedback/soma-feedback.css"')) fail(`${page}: feedback chip stylesheet missing`);
-  if (!/src="\/vendor\/soma-feedback\/soma-feedback\.js"[\s\S]*?data-endpoint="\/\.netlify\/functions\/soma-feedback"/.test(html)) {
-    fail(`${page}: feedback chip script or its same-origin endpoint is missing`);
-  }
+  // Since 2026-10-21 (pm-8e8a) the chip loads through soma-chip-loader.js, which
+  // pulls the chip from the central host and falls back to the vendored copy.
+  // Either the loader or the older direct script/stylesheet pair passes.
+  const loader = /src="\/vendor\/soma-feedback\/soma-chip-loader\.js"[\s\S]*?data-endpoint="\/\.netlify\/functions\/soma-feedback"/.test(html);
+  const direct = html.includes('href="/vendor/soma-feedback/soma-feedback.css"')
+    && /src="\/vendor\/soma-feedback\/soma-feedback\.js"[\s\S]*?data-endpoint="\/\.netlify\/functions\/soma-feedback"/.test(html);
+  if (!loader && !direct) fail(`${page}: feedback chip (loader or script) or its same-origin endpoint is missing`);
+}
+
+// The loader's fallback is the vendored chip, so its files must stay in the repo.
+for (const f of ['soma-chip-loader.js', 'soma-feedback.js', 'soma-feedback.css']) {
+  if (!existsSync(`vendor/soma-feedback/${f}`)) fail(`vendor/soma-feedback/${f} missing (the chip's fallback)`);
 }
 
 if (problems.length) {
