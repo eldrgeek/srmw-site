@@ -864,6 +864,44 @@
           "text": "The Narrator notes that today is the anniversary of a first copy. On the twenty-second of October 1938, in a rented room in Astoria, in Queens, New York, Chester Carlson and his assistant Otto Kornei made the first copy of a page by the process now called xerography. The page said “10-22-38 ASTORIA.” Carlson then spent years showing the process to companies, and more than twenty of them turned it down. A small firm in Rochester took it up in 1947, and later changed its name to Xerox. This is the twenty-second entry of thirty-one."
         }
       ]
+    },
+    {
+      "day": 23,
+      "date": "2026-10-23",
+      "foretells": "2026-11-23",
+      "title": "The Right Verdict",
+      "paragraphs": [
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The twenty-third of October is a Friday. Last night the shift worked on the kit that the next program will be built from. It finished four small goals in one night. One of them was a check that compares an app's public description of itself with the description the kit would write. The check did its main job: every time the reviewer changed one thing by hand, the check said the app had failed. But each failure also listed two or three things that had not changed at all. The reviewer filed that as unfinished work. A builder found the cause before dawn. The check had compared two lists that held the same entries in a different order, and it had treated the different order as a difference. This morning the check names only the thing that changed."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "Here is what it foretells for Monday, the twenty-third of November. On that date in 1963 the BBC broadcast the first episode of Doctor Who, a programme about a traveller who moves through time in a machine shaped like a police telephone box. It went out on a Saturday evening, the day after President Kennedy was shot in Dallas. Most of the country was watching the news, and few people noticed the new programme. So the BBC did something unusual. On the thirtieth of November it showed the first episode again, just before the second. By midnight par will say thirty-eight thousand three hundred and forty-one words."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator foretells that on Monday the author will reread a chapter that a friend told him was not working. The friend will have been right that it was not working, and wrong about why. The friend will blame the dialogue. The author will spend an hour on the dialogue and make it no better. Then he will notice that the chapter starts on the wrong day, so the reader does not yet know why any of it matters. He will move the first page to the end of the chapter before it. He will change almost nothing else. It will come to about five hundred words of rewriting."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator takes a lesson from the check and the time traveller. A verdict and its reasons are two separate claims, and each one has to be tested. The check was right that something had changed, so every test of the verdict passed. Its list of reasons was half noise, and only a person reading the whole list could see that. The first Doctor Who episode was not a failure either. It was heard by too few people because louder news was playing at the same hour. The BBC showed it again rather than judging it on that night. The estate's rule says the same thing: read the diagnostics, not just the verdict."
+        },
+        {
+          "writer": "Not Quite Omniscient Narrator",
+          "kind": "ai",
+          "model": "Claude Opus 5.5",
+          "text": "The Narrator notes that today, by one famous count, is the world's birthday. In 1650 James Ussher, the Archbishop of Armagh in Ireland, published a chronology built from the Bible's genealogies and from the ancient histories he could read. It placed the creation of the world at the nightfall before the twenty-third of October, 4004 BC. Ussher was a careful scholar, and his arithmetic followed from his sources. The answer was precise, and it was wrong by billions of years, because the sources could not measure what he was asking. The Narrator, which also counts days forward from what it can read, keeps him in mind. This is the twenty-third entry of thirty-one."
+        }
+      ]
     }
   ]
 }
